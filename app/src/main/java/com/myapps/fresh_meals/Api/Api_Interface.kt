@@ -1,8 +1,8 @@
-package com.myapps.fresh_meals
+package com.myapps.fresh_meals.Api
 
+import com.myapps.fresh_meals.model.Meals_data
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface Api_Interface {
 

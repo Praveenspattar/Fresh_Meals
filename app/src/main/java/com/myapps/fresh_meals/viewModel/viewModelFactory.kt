@@ -1,4 +1,11 @@
 package com.myapps.fresh_meals.viewModel
 
-class viewModelFactory {
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.myapps.fresh_meals.repository.MealsRepository
+
+class viewModelFactory(val repository: MealsRepository):ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return mealsViewModel(repository) as T
+    }
 }
