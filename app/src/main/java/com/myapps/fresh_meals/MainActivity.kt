@@ -3,7 +3,11 @@ package com.myapps.fresh_meals
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.myapps.fresh_meals.Api.Api_Interface
 import com.myapps.fresh_meals.Utils.constants
 import com.myapps.fresh_meals.repository.MealsRepository
@@ -18,29 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       /* val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build().create(Api_Interface::class.java)*/
+        val bottomnav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
-        /*lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                val apiResponse = retrofit.getMealsData()
+        val navController = findNavController(R.id.fragment)
+        NavigationUI.setupWithNavController(bottomnav,navController)
 
-                if (apiResponse.isSuccessful) {
-                    response = apiResponse.body()!!
-
-                    // Perform actions dependent on the response here
-                    Log.d("praveen", "onCreate $response")
-                } else {
-                    Log.e("its the error", "Error: ${apiResponse.code()}")
-                }
-            } catch (e: Exception) {
-                Log.e("its the error", "${e.message}")
-            }
-        }*/
-
-        //val repository = MealsRepository()
         val api by lazy { constants.getRetrofitInstant().create(Api_Interface::class.java) }
         val repo = MealsRepository(api)
         val viewModelFactory = viewModelFactory(repo)

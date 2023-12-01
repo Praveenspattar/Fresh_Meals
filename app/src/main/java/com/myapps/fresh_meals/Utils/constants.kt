@@ -7,10 +7,12 @@ import retrofit2.create
 
 object constants {
     const val BaseURL = "https://www.themealdb.com/api/json/v1/1/"
+
+    private val retrofit : Retrofit = Retrofit.Builder().baseUrl(BaseURL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
     fun getRetrofitInstant() :Retrofit{
-        return Retrofit.Builder().baseUrl(BaseURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        return retrofit
     }
 
 //    val api by lazy {
