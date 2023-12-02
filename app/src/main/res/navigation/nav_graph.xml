@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:name="com.myapps.fresh_meals.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/favoutiteFragment"
+        android:id="@+id/favoutite"
         android:name="com.myapps.fresh_meals.FavouritesFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourites"/>

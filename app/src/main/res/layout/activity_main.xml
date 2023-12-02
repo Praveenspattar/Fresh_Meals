@@ -18,7 +18,7 @@
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:name="com.myapps.fresh_meals.HomeFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
