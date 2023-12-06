@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,7 @@ import com.myapps.fresh_meals.Api.Api_Interface
 import com.myapps.fresh_meals.Utils.constants
 import com.myapps.fresh_meals.databinding.FragmentHomeBinding
 import com.myapps.fresh_meals.repository.MealsRepository
-import com.myapps.fresh_meals.viewModel.mealsViewModel
+import com.myapps.fresh_meals.viewModel.MealsViewModel
 import com.myapps.fresh_meals.viewModel.viewModelFactory
 
 
@@ -27,7 +26,7 @@ import com.myapps.fresh_meals.viewModel.viewModelFactory
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    lateinit var viewModel: mealsViewModel
+    lateinit var viewModel: MealsViewModel
     lateinit var recyclerView : RecyclerView
 
     override fun onCreateView(
@@ -41,7 +40,7 @@ class HomeFragment : Fragment() {
         val api by lazy { constants.getRetrofitInstant().create(Api_Interface::class.java) }
         val repo = MealsRepository(api)
         val viewModelFactory = viewModelFactory(repo)
-        viewModel = ViewModelProvider(this,viewModelFactory)[mealsViewModel::class.java]
+        viewModel = ViewModelProvider(this,viewModelFactory)[MealsViewModel::class.java]
 
         recyclerView = binding.recyclerView
         recyclerView.apply {

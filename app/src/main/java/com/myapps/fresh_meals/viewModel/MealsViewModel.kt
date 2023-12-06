@@ -7,15 +7,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.myapps.fresh_meals.model.MealCategory.MealCategories
 import com.myapps.fresh_meals.model.Meals_data
+import com.myapps.fresh_meals.model.QueryResponse.QueryResponse
 import com.myapps.fresh_meals.repository.MealsRepository
 import kotlinx.coroutines.launch
 
-class mealsViewModel(val repo : MealsRepository): ViewModel() {
+class MealsViewModel(private val repo : MealsRepository): ViewModel() {
     private val mutableLiveData = MutableLiveData<Meals_data>()
     private val mutableLiveData2 = MutableLiveData<MealCategories>()
+    private val mutableDataQuery = MutableLiveData<QueryResponse>()
 
     val liveData : LiveData<Meals_data> = mutableLiveData
     val liveDataCategory : LiveData<MealCategories> = mutableLiveData2
+    val liveDataQuery : LiveData<QueryResponse> = mutableDataQuery
 
     init {
         getMealData()
@@ -43,6 +46,18 @@ class mealsViewModel(val repo : MealsRepository): ViewModel() {
             }
         }catch (e : Exception){
             Log.e("error inview Model", "get category : ${e.message.toString()}")
+        }
+    }
+
+    fun getQueryResponse(query : String) = viewModelScope.launch {
+        try {
+            repo.getQueryResponse(query).let {
+                if (it.isSuccessful){
+                    mutableDataQuery.postValue(it.body())
+                }
+            }
+        }catch (e : Exception){
+            Log.e("error in view model", "get query : ${e.message.toString()}")
         }
     }
 
