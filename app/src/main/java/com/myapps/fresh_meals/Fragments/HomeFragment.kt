@@ -1,4 +1,4 @@
-package com.myapps.fresh_meals
+package com.myapps.fresh_meals.Fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +17,6 @@ import com.myapps.fresh_meals.repository.MealsRepository
 import com.myapps.fresh_meals.viewModel.MealsViewModel
 import com.myapps.fresh_meals.viewModel.viewModelFactory
 
-
 /**
  * A simple [Fragment] subclass.
  * Use the [HomeFragment.newInstance] factory method to
@@ -32,19 +31,19 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
-        binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         val api by lazy { constants.getRetrofitInstant().create(Api_Interface::class.java) }
         val repo = MealsRepository(api)
         val viewModelFactory = viewModelFactory(repo)
-        viewModel = ViewModelProvider(this,viewModelFactory)[MealsViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[MealsViewModel::class.java]
 
         recyclerView = binding.recyclerView
         recyclerView.apply {
-            layoutManager = GridLayoutManager(context,3)
+            layoutManager = GridLayoutManager(context, 3)
         }
 
         viewModel.liveDataCategory.observe(viewLifecycleOwner) {

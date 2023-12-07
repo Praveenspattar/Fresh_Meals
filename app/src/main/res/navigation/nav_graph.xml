@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.myapps.fresh_meals.HomeFragment"
+        android:name="com.myapps.fresh_meals.Fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/favoutite"
-        android:name="com.myapps.fresh_meals.FavouritesFragment"
+        android:name="com.myapps.fresh_meals.Fragments.FavouritesFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourites"/>
 </navigation>

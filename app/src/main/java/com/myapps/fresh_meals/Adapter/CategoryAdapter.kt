@@ -9,7 +9,6 @@ import com.myapps.fresh_meals.MainActivity
 import com.myapps.fresh_meals.MainActivity2
 import com.myapps.fresh_meals.databinding.CategoryItemBinding
 import com.myapps.fresh_meals.model.MealCategory.Category
-import com.myapps.fresh_meals.model.MealCategory.MealCategories
 
 class CategoryAdapter(var list: List<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
