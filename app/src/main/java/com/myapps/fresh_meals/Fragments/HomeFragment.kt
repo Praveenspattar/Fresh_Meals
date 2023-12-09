@@ -25,8 +25,8 @@ import com.myapps.fresh_meals.viewModel.viewModelFactory
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    lateinit var viewModel: MealsViewModel
-    lateinit var recyclerView : RecyclerView
+    private lateinit var viewModel: MealsViewModel
+    private lateinit var recyclerView : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -10,4 +10,6 @@ class MealsRepository(val apiServices : Api_Interface) {
     suspend fun getCategoryData() = apiServices.getCategoryData()
 
     suspend fun getQueryResponse(query : String) = apiServices.getMealsQuery(query)
+
+    suspend fun getMealDetail(idMeal : String) =  apiServices.getMealDetail(idMeal)
 }

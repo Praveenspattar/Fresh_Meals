@@ -1,33 +1,33 @@
 package com.myapps.fresh_meals.Fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import androidx.lifecycle.ViewModelProvider
+import com.myapps.fresh_meals.Api.Api_Interface
 import com.myapps.fresh_meals.R
+import com.myapps.fresh_meals.Utils.constants
+import com.myapps.fresh_meals.databinding.FragmentFullScreenBinding
+import com.myapps.fresh_meals.repository.MealsRepository
+import com.myapps.fresh_meals.viewModel.MealsViewModel
+import com.myapps.fresh_meals.viewModel.viewModelFactory
+import java.lang.Integer.parseInt
 
 // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FullScreenFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FullScreenFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var viewModel : MealsViewModel
+    lateinit var binding :FragmentFullScreenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
 
 
 
@@ -36,9 +36,40 @@ class FullScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_full_screen, container, false)
+
+        binding = FragmentFullScreenBinding.inflate(layoutInflater, container , false)
+
+        val api by lazy { constants.getRetrofitInstant().create(Api_Interface::class.java) }
+        val repo = MealsRepository(api)
+        val factory = viewModelFactory(repo)
+        viewModel = ViewModelProvider(this,factory)[MealsViewModel::class.java]
+
+        //val intent :Intent = Intent.getIntentOld("meal")
+        //val mealId : Int = Integer.parseInt(intent.toString())
+
+        //val mealId = Integer.parseInt(arguments.toString())
+        val mealId = arguments?.getString("meal")
+
+        if (mealId != null) {
+            viewModel.getMealDetail(mealId)
+        } else {
+            Log.d("meal id is empty ", "meal id  $mealId")
+        }
+
+        viewModel.liveDataMeal.observe(viewLifecycleOwner){
+            Log.d(" thedata"," data ${it}")
+            binding.tvMealName.text = it.strMeal
+            binding.tvInstruction.text = it.strInstructions
+
+            binding.webView.settings.javaScriptEnabled = true
+            binding.webView.settings.pluginState = WebSettings.PluginState.ON
+            binding.webView.loadUrl(it.strYoutube)
+            binding.webView.webChromeClient = WebChromeClient()
+        }
+
+        return binding.root
     }
 
 }

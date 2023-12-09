@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.myapps.fresh_meals.ARG_PARAM1
-import com.myapps.fresh_meals.ARG_PARAM2
 import com.myapps.fresh_meals.R
 
 /**
@@ -16,15 +14,10 @@ import com.myapps.fresh_meals.R
  */
 class FavouritesFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -49,8 +42,8 @@ class FavouritesFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             FavouritesFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+//                    putString(ARG_PARAM1, param1)
+//                    putString(ARG_PARAM2, param2)
                 }
             }
     }
