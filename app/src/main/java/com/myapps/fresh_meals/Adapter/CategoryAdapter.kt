@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.myapps.fresh_meals.MainActivity
 import com.myapps.fresh_meals.MainActivity2
 import com.myapps.fresh_meals.databinding.CategoryItemBinding
 import com.myapps.fresh_meals.model.MealCategory.Category
@@ -28,6 +27,18 @@ class CategoryAdapter(var list: List<Category>) : RecyclerView.Adapter<CategoryA
             val intent = Intent(holder.itemView.context, MainActivity2::class.java)
             intent.putExtra("category", list[position].strCategory)
             holder.itemView.context.startActivity(intent)
+
+//            val bundle = Bundle()
+//            bundle.putString("meal",list[position].strCategory)
+//
+//            val frg =  MealsFragment()
+//            frg.arguments = bundle
+//
+//            val transaction = (holder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+//            //transaction.add(R.id.fragment, frg)
+//            transaction.replace(R.id.fragment, frg)
+//            transaction.addToBackStack(null) // Optional: add to back stack
+//            transaction.commit()
         }
 
     }

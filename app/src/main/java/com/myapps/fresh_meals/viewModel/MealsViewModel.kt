@@ -17,12 +17,12 @@ class MealsViewModel(private val repo : MealsRepository): ViewModel() {
     private val mutableLiveData = MutableLiveData<Meals_data>()
     private val mutableLiveData2 = MutableLiveData<MealCategories>()
     private val mutableDataQuery = MutableLiveData<QueryResponse>()
-    private val mutableMealDetail = MutableLiveData<Meal>()
+    private val mutableMealDetail = MutableLiveData<SingleMealData>()
 
     val liveData : LiveData<Meals_data> = mutableLiveData
     val liveDataCategory : LiveData<MealCategories> = mutableLiveData2
     val liveDataQuery : LiveData<QueryResponse> = mutableDataQuery
-    val liveDataMeal : LiveData<Meal> = mutableMealDetail
+    val liveDataMeal : LiveData<SingleMealData> = mutableMealDetail
 
     init {
         getMealData()

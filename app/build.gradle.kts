@@ -68,5 +68,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0")
 
+    /*implementation ("com.google.android.youtube:youtube-android-player:core:12.1.0")*/
+
+
 
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myapps.fresh_meals.Adapter.MealsAdapter
@@ -14,7 +13,6 @@ import com.myapps.fresh_meals.databinding.ActivityMain2Binding
 import com.myapps.fresh_meals.repository.MealsRepository
 import com.myapps.fresh_meals.viewModel.MealsViewModel
 import com.myapps.fresh_meals.viewModel.viewModelFactory
-import retrofit2.create
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -49,5 +47,4 @@ class MainActivity2 : AppCompatActivity() {
         }
 
     }
-
 }
