@@ -1,12 +1,8 @@
 package com.myapps.fresh_meals
 
-import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.myapps.fresh_meals.Api.Api_Interface
 import com.myapps.fresh_meals.Utils.constants
@@ -14,6 +10,11 @@ import com.myapps.fresh_meals.databinding.ActivityFullScreenBinding
 import com.myapps.fresh_meals.repository.MealsRepository
 import com.myapps.fresh_meals.viewModel.MealsViewModel
 import com.myapps.fresh_meals.viewModel.viewModelFactory
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class FullScreenActivity : AppCompatActivity() {
 
@@ -44,7 +45,38 @@ class FullScreenActivity : AppCompatActivity() {
             binding.tvMealName.text = it.meals[0].strMeal
             binding.tvInstruction.text = it.meals[0].strInstructions
 
-            binding.videoView.setVideoURI(Uri.parse(it.meals[0].strYoutube))
+//            binding.videoView.setVideoURI(Uri.parse(it.meals[0].strYoutube))
+//            binding.videoView.requestFocus()
+//            binding.videoView.start()
+
+            val pattern =
+                "(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*"
+
+            val compiledPattern: Pattern = Pattern.compile(pattern)
+            val matcher: Matcher =
+                compiledPattern.matcher(it.meals[0].strYoutube) //url is youtube url for which you want to extract the id.
+
+            val videoId: String = if (matcher.find()) {
+                matcher.group()
+            } else {
+                "S0Q4gqBUs7c"
+            }
+
+            this.lifecycle.addObserver(binding.videoView)
+            binding.videoView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    //val videoId = "S0Q4gqBUs7c"
+                    youTubePlayer.loadVideo(videoId, 0F)
+                }
+            })
+
+
+//            binding.videoView.setVideoPath(it.meals[0].strYoutube)
+//
+//            binding.videoView.setOnPreparedListener { mp ->
+//                mp.start()
+//            }
+            //binding.videoView.autofillType
 
 //            binding.videoView.settings.javaScriptEnabled = true
 //            binding.videoView.settings.pluginState = WebSettings.PluginState.ON

@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".FullScreenActivity">
 
-    <VideoView
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <!--app:showSeekBar="true"
+    app:showVideoDuration="true"
+    app:showVideoCurrentTime="true"
+    app:showYoutubeButton="false"-->
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveBtn"
