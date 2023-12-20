@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "622473724218",
+    "project_id": "fresh-meals-5231a",
+    "storage_bucket": "fresh-meals-5231a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622473724218:android:cfd1d5b74968ee0ed01003",
+        "android_client_info": {
+          "package_name": "com.myapps.fresh_meals"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbkugh-4VG4-aLy8N1UW5MHzgchn-8fgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

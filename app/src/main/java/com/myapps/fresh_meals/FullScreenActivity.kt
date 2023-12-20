@@ -65,23 +65,11 @@ class FullScreenActivity : AppCompatActivity() {
             this.lifecycle.addObserver(binding.videoView)
             binding.videoView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
                 override fun onReady(youTubePlayer: YouTubePlayer) {
-                    //val videoId = "S0Q4gqBUs7c"
                     youTubePlayer.loadVideo(videoId, 0F)
                 }
             })
 
 
-//            binding.videoView.setVideoPath(it.meals[0].strYoutube)
-//
-//            binding.videoView.setOnPreparedListener { mp ->
-//                mp.start()
-//            }
-            //binding.videoView.autofillType
-
-//            binding.videoView.settings.javaScriptEnabled = true
-//            binding.videoView.settings.pluginState = WebSettings.PluginState.ON
-//            binding.videoView.loadUrl(it.meals[0].strYoutube)
-//            binding.videoView.webChromeClient = WebChromeClient()
         }
 
     }
