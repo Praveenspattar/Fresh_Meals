@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccActivity">
+    tools:context=".SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,16 +19,7 @@
         >
 
         <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="User Name"
-            android:inputType="text"
-            android:paddingStart="12sp" />
-
-        <EditText
-            android:id="@+id/emailAddressEditText"
+            android:id="@+id/signinEmailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -38,7 +29,7 @@
             android:paddingStart="12sp" />
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/signinPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -48,11 +39,11 @@
             android:paddingStart="12sp" />
 
         <Button
-            android:id="@+id/signUpBtn"
+            android:id="@+id/signInBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="sign-up"
+            android:text="sign-in"
             android:textAllCaps="true" />
 
         <TextView
@@ -60,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="have account ?"
+            android:text="Don't have account ?"
             android:textAlignment="textEnd"
             android:layout_gravity="end"
             android:padding="10dp"/>

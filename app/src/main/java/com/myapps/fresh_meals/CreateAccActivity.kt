@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.myapps.fresh_meals.Api.AuthServices
 import com.myapps.fresh_meals.Utils.FirebaseAuthService
 import com.myapps.fresh_meals.Utils.MyAuthResult
 import com.myapps.fresh_meals.databinding.ActivityCreateAccBinding
@@ -50,8 +49,8 @@ class CreateAccActivity : AppCompatActivity() {
             }
         })
 
-        // Example: Trigger account creation on button click
-        binding.signInBtn.setOnClickListener {
+        //  Trigger account creation on button click
+        binding.signUpBtn.setOnClickListener {
             val email = binding.emailAddressEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             viewModel.createAccount(email, password)
