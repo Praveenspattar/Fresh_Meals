@@ -4,8 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.myapps.fresh_meals.R
+import com.myapps.fresh_meals.Utils.FirebaseDatabaseService
+import com.myapps.fresh_meals.databinding.FragmentFavouritesBinding
+import com.myapps.fresh_meals.repository.DatabaseRepository
+import com.myapps.fresh_meals.viewModel.DatabaseViewModel
+import com.myapps.fresh_meals.viewModel.DatabaseViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -14,37 +22,19 @@ import com.myapps.fresh_meals.R
  */
 class FavouritesFragment : Fragment() {
     // TODO: Rename and change types of parameters
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    lateinit var binding: FragmentFavouritesBinding
+    lateinit var viewModel: DatabaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favourites, container, false)
+        binding = FragmentFavouritesBinding.inflate(layoutInflater, container, false)
+
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FavouritesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavouritesFragment().apply {
-                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
