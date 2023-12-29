@@ -1,10 +1,14 @@
 package com.myapps.fresh_meals
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.myapps.fresh_meals.Utils.FirebaseAuthService
 import com.myapps.fresh_meals.Utils.MyAuthResult
 import com.myapps.fresh_meals.databinding.ActivityCreateAccBinding
@@ -18,6 +22,18 @@ class CreateAccActivity : AppCompatActivity() {
     lateinit var binding : ActivityCreateAccBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val user = FirebaseAuth.getInstance().currentUser
+
+        Thread.sleep(2000)
+        installSplashScreen()
+        if (user != null){
+            println("helllo")
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding = ActivityCreateAccBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -31,7 +47,7 @@ class CreateAccActivity : AppCompatActivity() {
 //        })
 
         ///
-        val authService = FirebaseAuthService() // You need to implement this class
+        val authService = FirebaseAuthService(this) // You need to implement this class
         val authRepository = FireRepository(authService)
         viewModel = ViewModelProvider(this, FireModelFactory(authRepository))[FireViewModel::class.java]
 

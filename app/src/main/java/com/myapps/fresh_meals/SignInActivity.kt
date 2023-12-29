@@ -21,7 +21,7 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val authService = FirebaseAuthService()
+        val authService = FirebaseAuthService(this)
         val fireRepository = FireRepository(authService)
         viewModel = ViewModelProvider(this,FireModelFactory(fireRepository))[FireViewModel::class.java]
 

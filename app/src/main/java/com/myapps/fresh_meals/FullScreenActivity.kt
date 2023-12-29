@@ -87,7 +87,7 @@ class FullScreenActivity : AppCompatActivity() {
 
         }
 
-        // To Upload data
+        /** To Upload data*/
         val databaseService = FirebaseDatabaseService()
         val databaseRepository = DatabaseRepository(databaseService)
         viewModelData = ViewModelProvider(this, DatabaseViewModelFactory(databaseRepository))[DatabaseViewModel::class.java]

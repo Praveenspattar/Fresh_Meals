@@ -4,5 +4,6 @@ import com.myapps.fresh_meals.model.Firebase.FavouriteData
 
 interface FirebaseDataSource {
 
-    suspend fun getData() : Result<List<FavouriteData>>
+    /***to fetch data*/
+    suspend fun getData()
 }

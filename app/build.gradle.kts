@@ -79,5 +79,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    ///splashscreen
+    implementation ("androidx.core:core-splashscreen:1.1.0-alpha02")
 
 }

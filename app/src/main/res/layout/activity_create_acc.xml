@@ -25,7 +25,8 @@
             android:ems="10"
             android:hint="User Name"
             android:inputType="text"
-            android:paddingStart="12sp" />
+            android:paddingStart="12sp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/emailAddressEditText"
