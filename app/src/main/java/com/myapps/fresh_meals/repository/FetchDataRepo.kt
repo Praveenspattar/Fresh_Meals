@@ -1,5 +1,6 @@
 package com.myapps.fresh_meals.repository
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -13,7 +14,7 @@ class FetchDataRepo {
 
     suspend fun getData(): List<FavouriteData> {
         return try {
-            println("iwant repo")
+            println("iwant repo111")
             val dataSnapshot = databaseReference.get().await()
             val dataList = mutableListOf<FavouriteData>()
 
@@ -24,6 +25,8 @@ class FetchDataRepo {
 
             dataList
         } catch (e: Exception) {
+            println("iwant repo222")
+            Log.e("iwant","$e")
             // Handle the exception (e.g., log it or throw a custom exception)
             emptyList()
         }

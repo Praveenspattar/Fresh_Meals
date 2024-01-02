@@ -42,6 +42,7 @@ class FavouritesFragment : Fragment() {
         viewModel = ViewModelProvider(this,modelFactory)[FetchDataViewModel::class.java]
 
         Log.d("iwant: ", "above scope")
+        viewModel.fetchData()
         viewModel.myData.observe(viewLifecycleOwner) { data ->
             if (data != null && data.isNotEmpty()) {
                 println("iwant: $data")
