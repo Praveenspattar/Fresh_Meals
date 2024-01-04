@@ -28,7 +28,6 @@ class CreateAccActivity : AppCompatActivity() {
         Thread.sleep(2000)
         installSplashScreen()
         if (user != null){
-            println("helllo")
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -37,14 +36,11 @@ class CreateAccActivity : AppCompatActivity() {
         binding = ActivityCreateAccBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val fireViewModel = FireModelFactory(binding.emailAddressEditText.toString(),binding.passwordEditText.toString())
-//        viewModel = ViewModelProvider(this,fireViewModel)[FireViewModel::class.java]
-//       // viewModel = FireViewModel(binding.emailAddressEditText.toString(),binding.passwordEditText.toString())
-//
-//        binding.signInBtn.setOnClickListener({
-//            println("emil  "+ binding.emailAddressEditText.text.toString().trim())
-//            viewModel.createUser(binding.emailAddressEditText.text.toString().trim(),binding.passwordEditText.toString().trim(),this)
-//        })
+        binding.haveAccTV.setOnClickListener{
+            val intent = Intent(this,SignInActivity::class.java)
+            this.startActivity(intent)
+            finish()
+        }
 
         ///
         val authService = FirebaseAuthService(this) // You need to implement this class

@@ -4,12 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryDark"
     tools:context=".SignInActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.2"
+        android:src="@drawable/backimg"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abril_fatface"
+        android:paddingStart="20dp"
+        android:paddingTop="33dp"
+        android:paddingBottom="5dp"
+        android:text="Sign-In"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/DontHaveAccTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:text="Sign-Up"
+        android:textAlignment="textEnd"
+        android:layout_gravity="end"
+        android:padding="10dp"
+        android:fontFamily="@font/arsenal_italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
         android:orientation="vertical"
         android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,41 +55,42 @@
         <EditText
             android:id="@+id/signinEmailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:ems="10"
+            android:background="@drawable/backgrd"
             android:hint="Email"
+            android:textColor="@color/primaryLight"
+            android:fontFamily="@font/poppins"
+            android:textColorHint="@color/primaryLight"
             android:inputType="textEmailAddress"
             android:paddingStart="12sp" />
 
         <EditText
             android:id="@+id/signinPasswordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:ems="10"
+            android:background="@drawable/backgrd"
+            android:textColor="@color/primaryLight"
             android:hint="Password"
+            android:fontFamily="@font/poppins"
+            android:textColorHint="@color/primaryLight"
             android:inputType="textPassword"
             android:paddingStart="12sp" />
 
-        <Button
-            android:id="@+id/signInBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="sign-in"
-            android:textAllCaps="true" />
-
-        <TextView
-            android:id="@+id/haveAccTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Don't have account ?"
-            android:textAlignment="textEnd"
-            android:layout_gravity="end"
-            android:padding="10dp"/>
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/signInBtn"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/secondary"
+        android:text="sign-in"
+        android:fontFamily="@font/poppins"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

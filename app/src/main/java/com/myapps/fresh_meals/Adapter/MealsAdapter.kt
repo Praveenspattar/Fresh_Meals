@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myapps.fresh_meals.FullScreenActivity
+import com.myapps.fresh_meals.R
 import com.myapps.fresh_meals.databinding.MealsItemBinding
 import com.myapps.fresh_meals.model.QueryResponse.Meal
 
@@ -23,6 +24,8 @@ class MealsAdapter(private var list : List<Meal>) : RecyclerView.Adapter<MealsAd
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.binding.mealText.text = list[position].strMeal
         Glide.with(holder.itemView).load(list[position].strMealThumb).into(holder.binding.mealImage)
+
+        holder.itemView.setBackgroundResource(R.drawable.backgrd1)
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,FullScreenActivity::class.java)

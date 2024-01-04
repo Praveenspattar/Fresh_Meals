@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myapps.fresh_meals.Adapter.CategoryAdapter
 import com.myapps.fresh_meals.Api.Api_Interface
@@ -43,12 +44,11 @@ class HomeFragment : Fragment() {
 
         recyclerView = binding.recyclerView
         recyclerView.apply {
-            layoutManager = GridLayoutManager(context, 3)
+            layoutManager = LinearLayoutManager(context)
         }
 
         viewModel.liveDataCategory.observe(viewLifecycleOwner) {
             val response = it.categories
-            Log.d("theCategoryData", "the data ${response}")
             recyclerView.adapter = CategoryAdapter(response)
         }
         return binding.root

@@ -15,20 +15,7 @@ import com.myapps.fresh_meals.repository.FireRepository
 import kotlinx.coroutines.launch
 
 class FireViewModel(private val fireRepository: FireRepository) : ViewModel() {
-//    val firebaseAuth = FirebaseAuth.getInstance()
-//
-//    fun createUser(email: String ,password : String ,context: Context) {
-//        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
-//            Toast.makeText(context ,"User Created Successfully", Toast.LENGTH_SHORT).show()
-//        }.addOnFailureListener { exception ->
-//            // Handle authentication failures
-//            when (exception) {
-//                is FirebaseAuthUserCollisionException -> Toast.makeText(context,"User with this email already exists.",Toast.LENGTH_SHORT).show()
-//                is FirebaseAuthException -> Toast.makeText(context,"Authentication failed: ${exception.message}",Toast.LENGTH_SHORT).show()
-//                else -> Toast.makeText(context,"User creation failed.",Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
+
 
     ///
     private val _createAccountResult = MutableLiveData<MyAuthResult>()

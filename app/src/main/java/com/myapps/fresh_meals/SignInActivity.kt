@@ -1,5 +1,6 @@
 package com.myapps.fresh_meals
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,12 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.DontHaveAccTV.setOnClickListener{
+            val intent = Intent(this,CreateAccActivity::class.java)
+            this.startActivity(intent)
+            finish()
+        }
 
         val authService = FirebaseAuthService(this)
         val fireRepository = FireRepository(authService)

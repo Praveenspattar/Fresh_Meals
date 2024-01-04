@@ -1,11 +1,13 @@
 package com.myapps.fresh_meals.Adapter
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myapps.fresh_meals.MainActivity2
+import com.myapps.fresh_meals.R
 import com.myapps.fresh_meals.databinding.CategoryItemBinding
 import com.myapps.fresh_meals.model.MealCategory.Category
 

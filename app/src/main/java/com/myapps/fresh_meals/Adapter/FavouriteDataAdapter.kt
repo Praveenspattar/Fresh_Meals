@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.myapps.fresh_meals.FavouriteViewActivity
 import com.myapps.fresh_meals.FullScreenActivity
+import com.myapps.fresh_meals.R
 import com.myapps.fresh_meals.databinding.FavouriteSingleBinding
 import com.myapps.fresh_meals.model.Firebase.FavouriteData
 
@@ -25,9 +27,14 @@ class FavouriteDataAdapter(private val favouriteDataList: List<FavouriteData>) :
 
         holder.binding.singleMealName.text = favouriteData.mealName
 
+        holder.itemView.setBackgroundResource(R.drawable.backgrd1)
+
         holder.itemView.setOnClickListener{
-            /*val intent = Intent(holder.itemView.context,FullScreenActivity::class.java)
-            intent.putExtra("FavMeal",favouriteData)*/
+            val intent = Intent(holder.itemView.context,FavouriteViewActivity::class.java)
+            intent.putExtra("FavMealName",favouriteData.mealName)
+            intent.putExtra("FavMealIn",favouriteData.instruction)
+            intent.putExtra("FavMealYT",favouriteData.youtube)
+            holder.itemView.context.startActivity(intent)
         }
 
     }

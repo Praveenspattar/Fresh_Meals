@@ -4,6 +4,4 @@ data class FavouriteData (
     val youtube: String? = "",
     val mealName : String? = "",
     val instruction : String = ""
-){
-    constructor() : this("", "", "")
-}
+)
