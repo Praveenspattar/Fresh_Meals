@@ -8,13 +8,19 @@
     tools:context=".SignInActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:alpha="0.2"
-        android:src="@drawable/backimg"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/backimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/abril_fatface"
@@ -25,23 +31,24 @@
         android:textColor="@color/white"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/DontHaveAccTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
+        android:fontFamily="@font/arsenal_italic"
+        android:padding="10dp"
         android:text="Sign-Up"
         android:textAlignment="textEnd"
-        android:layout_gravity="end"
-        android:padding="10dp"
-        android:fontFamily="@font/arsenal_italic"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -49,8 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/signinEmailEditText"
@@ -58,12 +64,12 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/backgrd"
-            android:hint="Email"
-            android:textColor="@color/primaryLight"
             android:fontFamily="@font/poppins"
-            android:textColorHint="@color/primaryLight"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:paddingStart="12sp" />
+            android:paddingStart="12sp"
+            android:textColor="@color/primaryLight"
+            android:textColorHint="@color/primaryLight" />
 
         <EditText
             android:id="@+id/signinPasswordEditText"
@@ -71,23 +77,23 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/backgrd"
-            android:textColor="@color/primaryLight"
-            android:hint="Password"
             android:fontFamily="@font/poppins"
-            android:textColorHint="@color/primaryLight"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:paddingStart="12sp" />
+            android:paddingStart="12sp"
+            android:textColor="@color/primaryLight"
+            android:textColorHint="@color/primaryLight" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/signInBtn"
-        android:layout_margin="25dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_margin="25dp"
         android:backgroundTint="@color/secondary"
-        android:text="sign-in"
         android:fontFamily="@font/poppins"
+        android:text="sign-in"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
