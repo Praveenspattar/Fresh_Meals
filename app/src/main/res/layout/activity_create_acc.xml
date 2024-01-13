@@ -8,13 +8,19 @@
     tools:context=".CreateAccActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:alpha="0.2"
-        android:src="@drawable/backimg"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/backimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/abril_fatface"
@@ -29,19 +35,20 @@
 
     <TextView
         android:id="@+id/haveAccTV"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/arsenal_italic"
         android:padding="10dp"
         android:text="Sign-In  "
-        android:fontFamily="@font/arsenal_italic"
         android:textAlignment="textEnd"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -49,36 +56,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:autofillHints=""
+            android:background="@drawable/backgrd"
             android:fontFamily="@font/poppins"
             android:hint="User Name"
-            android:background="@drawable/backgrd"
-            android:textColorHint="@color/primaryLight"
-            android:textColor="@color/primaryLight"
             android:inputType="text"
             android:paddingStart="12sp"
-            android:autofillHints="" />
+            android:textColor="@color/primaryLight"
+            android:textColorHint="@color/primaryLight" />
 
         <EditText
             android:id="@+id/emailAddressEditText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
+            android:autofillHints="emailAddress"
             android:background="@drawable/backgrd"
-            android:textColor="@color/primaryLight"
             android:ems="10"
             android:fontFamily="@font/poppins"
             android:hint="Email"
-            android:autofillHints="emailAddress"
-            android:textColorHint="@color/primaryLight"
             android:inputType="textEmailAddress"
-            android:paddingStart="12sp" />
+            android:paddingStart="12sp"
+            android:textColor="@color/primaryLight"
+            android:textColorHint="@color/primaryLight" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -86,24 +92,24 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/backgrd"
-            android:textColor="@color/primaryLight"
             android:ems="10"
-            android:hint="Password"
             android:fontFamily="@font/poppins"
-            android:textColorHint="@color/primaryLight"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:paddingStart="12sp" />
+            android:paddingStart="12sp"
+            android:textColor="@color/primaryLight"
+            android:textColorHint="@color/primaryLight" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/signUpBtn"
-        android:layout_margin="25dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_margin="25dp"
         android:backgroundTint="@color/secondary"
-        android:text="sign-up"
         android:fontFamily="@font/poppins"
+        android:text="sign-up"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
